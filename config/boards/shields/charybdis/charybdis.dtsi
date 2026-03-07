@@ -54,7 +54,7 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,physical-layouts = &Nano35_layout；
+        zmk,physical-layouts = &Nano35_layout;
 	zmk,underglow = &led_strip;
     };
 
