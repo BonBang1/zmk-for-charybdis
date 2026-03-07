@@ -1,38 +1,5 @@
-name: Build ZMK Firmware
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install west (>=1.0.0)
-        run: pip install 'west>=1.0.0'
-
-      - name: West init
-        run: west init -l config
-
-      - name: West update
-        run: west update
-
-      - name: West build (left)
-        run: west build -s zmk/app -b nice_nano_v2 -- -DSHIELD=charybdis_left
-
-      - name: West build (right)
-        run: west build -s zmk/app -b nice_nano_v2 -- -DSHIELD=charybdis_right
-
-      - name: West build (settings_reset, optional)
-        run: west build -s zmk/app -b nice_nano_v2 -- -DSHIELD=settings_reset
-      
-      - name: Upload left firmware
-        uses: actions/upload-artifact@v4
-        with:
-          name: firmware-left
-          path: build/charybdis_left/zephyr/zmk.uf2
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
