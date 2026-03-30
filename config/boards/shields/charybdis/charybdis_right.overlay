@@ -25,13 +25,11 @@
     spi0_default: spi0_default {
         group1 {
             /* 关键：这里定义了 SPI 总线的物理引脚 */
-            psels = <NRF_PSEL(SPIM_SCK, 0, 8)>,   /* SCK 引脚: P0.17 */
-                    <NRF_PSEL(SPIM_MOSI, 0, 17)>;  /* MOSI 引脚: P0.15 */
+            psels = <NRF_PSEL(SPIM_SCK, 0, 8)>,   /* SCK 引脚: P0.08 */
+                    <NRF_PSEL(SPIM_MOSI, 0, 17)>;  /* MOSI 引脚: P0.17 */
         };
     };
 };
-
-
 
 / {
     chosen {
@@ -41,17 +39,20 @@
 
 &spi0 {
     status = "okay";
-    cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;   /* 片选 CS 引脚 */
+    pinctrl-0 = <&spi0_default>;    /* 必须：关联引脚配置 */
+    pinctrl-names = "default";      /* 必须：引脚状态名称 */
+    cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;   /* 片选 CS 引脚: P0.20 */
 
     gc9a01: gc9a01@0 {
         compatible = "galaxycore,gc9x01x";
         reg = <0>;
-        spi-max-frequency = <4000000>;        /* SPI 时钟频率 20MHz */
+        spi-max-frequency = <4000000>;        /* SPI 时钟频率 4MHz */
 
         /* 控制引脚：DC (Data/Command) 和 Reset */
-        cmd-data-gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;  /* DC 引脚 */
-        reset-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;      /* Reset 引脚 */
-		backlight-gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
+        cmd-data-gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;  /* DC 引脚: P1.11 */
+        reset-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;      /* Reset 引脚: P0.10 */
+        backlight-gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;  /* 背光引脚: P1.02 */
+
         width = <240>;
         height = <240>;
         /* display-inversion; 若颜色反转可取消注释 */
