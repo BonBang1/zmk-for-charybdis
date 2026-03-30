@@ -3,14 +3,17 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-
+    - name: petejohanson # 引入社区大神的驱动库
+      url-base: https://github.com/petejohanson
    
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: v0.3
       import: app/west.yml
-
+    - name: zmk-display-gc9a01
+      remote: petejohanson
+      revision: main
       
   self:
     path: config
