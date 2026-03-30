@@ -21,36 +21,27 @@
 ;
 };
 
-#include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
 / {
-
-	chosen {
-			zephyr,display = &gc9a01;
-			};
+    chosen {
+        zephyr,display = &gc9a01;
+    };
 };
 
-/* 替换为你的主控实际使用的 SPI 总线，比如 spi0 或 spi1 */
-		&spi0 { 
-				status = "okay";
-/* 注意：CS 引脚依然配置在 SPI 节点上 */
-				cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>; 
-				mipi_dbi {
-				compatible = "zephyr,mipi-dbi-spi";
-				spi-dev = <&spi0>;
-				#address-cells = <1>;
-				#size-cells = <0>;
-/* 替换为你的 DC (Data/Command) 和 RES (Reset) 引脚 */
-				dc-gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;    
-				reset-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>; 
-				gc9a01: gc9a01@0 {
-				status = "okay";
-				compatible = "galaxycore,gc9x01x";
-				reg = <0>;
-				mipi-max-frequency = <20000000>; /* 20MHz SPI 时钟 */
-				width = <240>;
-				height = <240>;
-/* 如果屏幕点亮后颜色反转，可以取消下一行的注释 */
-/* display-inversion; */ 
-				};
-		};
+&spi0 {
+    status = "okay";
+    cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;   /* 片选 CS 引脚 */
+
+    gc9a01: gc9a01@0 {
+        compatible = "galaxycore,gc9x01x";
+        reg = <0>;
+        spi-max-frequency = <4000000>;        /* SPI 时钟频率 20MHz */
+
+        /* 控制引脚：DC (Data/Command) 和 Reset */
+        cmd-data-gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;  /* DC 引脚 */
+        reset-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;      /* Reset 引脚 */
+		backlight-gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
+        width = <240>;
+        height = <240>;
+        /* display-inversion; 若颜色反转可取消注释 */
+    };
 };
