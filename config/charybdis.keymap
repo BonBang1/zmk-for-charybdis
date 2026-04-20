@@ -104,6 +104,15 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        lang {
+            bindings = <&kp LS(LANG_HANGEUL)>;
+            key-positions = <32 33>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -119,7 +128,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,
+                // 编码器1：上下滚动,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
