@@ -114,12 +114,12 @@
 &kp LEFT_SHIFT  &hm LEFT_GUI A  &hm LEFT_ALT S  &hm LCTRL D  &hm LEFT_SHIFT F  &kp G        &kp H         &hm RIGHT_SHIFT J  &hm RCTRL K  &hm RIGHT_ALT L   &hm RIGHT_GUI P  &kp SQT
 &kp LCTRL       &kp Z           &kp X           &kp C        &kp V             &kp B        &kp N         &kp M              &kp COMMA    &kp LEFT_BRACKET  &kp FSLH         &kp MINUS
                                                 &lt 4 ESC    &lt 1 SPACE       &lt 2 TAB    &lt 6 ENTER   &lt 5 BACKSPACE
-                                                             &mkp LCLK         &mkp LCLK    &lt 7 DELETE
+                                                             &mkp LCLK         &mkp RCLK    &lt 7 DELETE
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,
+                // 编码器1：上下滚动,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
