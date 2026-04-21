@@ -128,7 +128,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -180,10 +180,10 @@
 
         layer_5 {
             bindings = <
-&trans  &trans            &trans        &trans        &trans        &trans               &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LEFT_BRACKET  &kp N7        &kp NUMBER_8  &kp NUMBER_9  &kp RIGHT_BRACKET    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp SQT           &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp EQUAL            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp GRAVE         &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp BACKSLASH        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans            &trans        &trans        &trans        &trans               &trans  &trans           &trans     &trans         &trans         &trans
+&trans  &kp LEFT_BRACKET  &kp N7        &kp NUMBER_8  &kp NUMBER_9  &kp RIGHT_BRACKET    &trans  &trans           &trans     &trans         &trans         &trans
+&trans  &kp SQT           &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp EQUAL            &trans  &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT  &kp RIGHT_GUI  &trans
+&trans  &kp GRAVE         &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp BACKSLASH        &trans  &trans           &trans     &trans         &trans         &trans
                                         &kp PERIOD    &kp MINUS     &trans               &trans  &trans
                                                       &kp NUMBER_0  &trans               &trans
             >;
@@ -202,10 +202,10 @@
 
         layer_7 {
             bindings = <
-&trans  &trans   &trans  &trans  &trans  &trans             &trans  &trans           &trans     &trans         &trans         &trans
-&trans  &kp F12  &kp F7  &kp F8  &kp F9  &kp PRINTSCREEN    &trans  &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT  &kp RIGHT_GUI  &trans
-&trans  &kp F11  &kp F4  &kp F5  &kp F6  &trans             &trans  &trans           &trans     &trans         &trans         &trans
-&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans             &trans  &trans           &trans     &trans         &trans         &trans
+&trans  &trans   &trans  &trans  &trans  &trans             &trans  &trans           &trans     &trans         &trans    &trans
+&trans  &kp F12  &kp F7  &kp F8  &kp F9  &kp PRINTSCREEN    &trans  &trans           &trans     &trans         &trans    &trans
+&trans  &kp F11  &kp F4  &kp F5  &kp F6  &trans             &trans  &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT  &kp RGUI  &trans
+&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans             &trans  &trans           &trans     &trans         &trans    &trans
                          &trans  &trans  &trans             &trans  &trans
                                  &trans  &trans             &trans
             >;
