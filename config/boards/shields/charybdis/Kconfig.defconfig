@@ -6,7 +6,7 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
-config ZMK_SPLIT
+config ZMK_USB
     default y
 
 # Set this to the number of peripherals your dongle will have.
@@ -16,7 +16,7 @@ config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
 
 endif
 
-if SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_RIGHT
+if SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_RIGHT ||  SHIELD_CHARYBDIS_DONGLE
 
 config ZMK_SPLIT
 	default y
